@@ -42,6 +42,7 @@ Functional Simulation:
       
 	After this you can see the window like below 
 
+![image](https://github.com/user-attachments/assets/bd4ceb84-0abb-4aed-8c7c-0dfbe63a8d03)
 
 ## Fig 2: Invoke the Cadence Environment
 
@@ -56,7 +57,20 @@ Functional Simulation:
 
 ### Verilog code for 4-Bit Up-Down Counter:
 
-*/Program  for  4-Bit Up-Down Counter
+Verilog code for 4-Bit Up-Down Counter:
+`timescale 1ns / 1 ns
+module counter(clk,m,rst,count);
+input clk,m,rst;
+output reg [3:0] count;
+always@(posedge clk or negedge rst) begin
+if (!rst)
+count=0;
+else if(m)
+count=count+1;
+else
+count=count-1;
+end
+endmodule
 
 	Use Save option or Ctrl+S to save the code or click on the save option from the top most right corner and close the text file.
 
@@ -76,12 +90,14 @@ Functional Simulation:
 It will invoke the nclaunch window for functional simulation we can compile,elaborate and simulate it using Multiple step
 
 ## Fig 3: Setting Multi-step simulation
+![image](https://github.com/user-attachments/assets/9102d49f-438e-47a1-bb08-b024d8bea933)
+
 
 Select Multiple Step and then select “Create cds.lib File” as shown in below figure
 
 Click the cds.lib file and save the file by clicking on Save option
 
-## Fig 4: cds.lib file Creation
+
 
 	Save cds.lib file and select the correct option for cds.lib file format based on the  HDL Language and Libraries used.
 
@@ -89,7 +105,7 @@ Click the cds.lib file and save the file by clicking on Save option
 
 	We are simulating verilog design without using any libraries
 
-## Fig 5: Selection of Don’t include any libraries
+
 
 	A Click “OK” in the “nclaunch: Open Design Directory” window
 
@@ -99,7 +115,7 @@ Click the cds.lib file and save the file by clicking on Save option
 
 	Worklib is the directory where all the compiled codes are stored while Snapshot will have output of elaboration which in turn goes for simulation
 
-## Fig 6: Nclaunch Window
+
 
 To perform the function simulation, the following three steps are involved Compilation, Elaboration and Simulation.
 
@@ -169,9 +185,12 @@ It contains statements that map logical library names to their physical director
 	Steps for simulation – Run the simulation command with simulator options
 
 ## Fig 9: Design Browser window for simulation
+![Uploading image.png…]()
+
 
 ## Fig 10: Simulation Waveform Window
 ![pdvlsi exp 2](https://github.com/user-attachments/assets/cf14d4fe-506e-443d-9e0c-2e63bcbeb84d)
 
-## Fig 11: Simulation Waveform Window
 
+### Result:
+The functionality of a 4bit_up-down asynchronous reset Counter was successfully verified using a test bench and simulated with the nclaunch tool.
